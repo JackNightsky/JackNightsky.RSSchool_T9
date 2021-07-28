@@ -61,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04A1F4DA26B1E39200DBDCA8 /* Don't use */ = {
+			isa = PBXGroup;
+			children = (
+				2BB9E76126AB605700112651 /* Main.storyboard */,
+			);
+			path = "Don't use";
+			sourceTree = "<group>";
+		};
 		2BB9E74F26AB605700112651 = {
 			isa = PBXGroup;
 			children = (
@@ -80,10 +88,10 @@
 		2BB9E75A26AB605700112651 /* RSSchool_T9 */ = {
 			isa = PBXGroup;
 			children = (
+				04A1F4DA26B1E39200DBDCA8 /* Don't use */,
 				2BB9F28F26ADFAEB00F43852 /* Data */,
 				2BB9E75B26AB605700112651 /* AppDelegate.swift */,
 				2BB9E75D26AB605700112651 /* SceneDelegate.swift */,
-				2BB9E76126AB605700112651 /* Main.storyboard */,
 				2BB9E76426AB605900112651 /* Assets.xcassets */,
 				2BB9E76626AB605900112651 /* LaunchScreen.storyboard */,
 				2BB9E76926AB605900112651 /* Info.plist */,

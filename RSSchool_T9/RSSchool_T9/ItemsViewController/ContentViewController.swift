@@ -9,8 +9,10 @@
 
 import UIKit
 
-class ContentViewController: UIViewController {
-//    let donor: CollectionViewCell
+class ContentViewController: UIViewController, UIScrollViewDelegate {
+
+    let scrollView = UIScrollView()
+    let contentView = UIView()
     let image: UIImage
     let titleText: String
     let typeText: String
@@ -20,13 +22,19 @@ class ContentViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .black
         // Do any additional setup after loading the view.
-        self.view.addSubview(imageView)
         self.view.addSubview(closeButton)
+        self.view.addSubview(headerView)
         
-        imageView.addSubview(typeLabel)
-        imageView.addSubview(titleLabel)
+        imageView.image = image
+        headerView.addSubview(imageView)
         
+        typeLabel.text = typeText
+        headerView.addSubview(typeLabel)
         
+//        imageView.addSubview(typeLabel)
+//        imageView.addSubview(titleLabel)
+
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             
             closeButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30),
@@ -34,18 +42,15 @@ class ContentViewController: UIViewController {
             closeButton.heightAnchor.constraint(equalToConstant: 40),
             closeButton.widthAnchor.constraint(equalToConstant: 40),
             
-            
-//            imageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 10),
-//            imageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -10),
-//            imageView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
-//            imageView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
+            imageView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 0),
+            imageView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10),
+            imageView.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 20),
+            imageView.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: -20),
 
-//            typeLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -13),
-//            typeLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 10),
-//
-//            titleLabel.bottomAnchor.constraint(equalTo: typeLabel.topAnchor, constant: -5),
-//            titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 10),
-//            titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -5),
+            typeLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            typeLabel.centerYAnchor.constraint(equalTo: imageView.bottomAnchor),
+            typeLabel.heightAnchor.constraint(equalToConstant: typeLabel.intrinsicContentSize.height + 16),
+            typeLabel.widthAnchor.constraint(equalToConstant: typeLabel.intrinsicContentSize.width + 60),
 
         ])
         
@@ -95,7 +100,18 @@ class ContentViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    
+    lazy var headerView: UIView = {
+        let view = UIView()
+        view.frame = CGRect.init(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 510)
+//        view.backgroundColor = .white
+        view.contentMode = .scaleAspectFill // not compress image
+        view.clipsToBounds = false  // clips image's places which not fit in view
+        
+        return view
+    }()
+    
+    
     lazy var imageView: CellImageView = {
         let view = CellImageView()
         view.layer.cornerRadius = 10
@@ -116,7 +132,7 @@ class ContentViewController: UIViewController {
         label.textColor = .white
         label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
-//        label.backgroundColor = .red
+        label.backgroundColor = self.view.backgroundColor
 
         label.adjustsFontSizeToFitWidth = false
         label.adjustsFontForContentSizeCategory = false
@@ -126,13 +142,17 @@ class ContentViewController: UIViewController {
 
     lazy var typeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Rockwell-Regular", size: 12)
-        label.textColor = UIColor(red: 0.712, green: 0.712, blue: 0.712, alpha: 1)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byTruncatingTail
-
-        label.adjustsFontSizeToFitWidth = true
-        label.adjustsFontForContentSizeCategory = true
+        
+        label.textAlignment = .center
+        label.font = UIFont(name: "Rockwell-Regular", size: 24)
+        label.textColor = .white
+        label.backgroundColor = self.view.backgroundColor
+        label.layer.borderWidth = 1
+        label.layer.borderColor = UIColor.white.cgColor
+        label.layer.cornerRadius = 10
+        
+        label.numberOfLines = 1
+        label.clipsToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

@@ -36,6 +36,11 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Properties
+    var paths: [CGPath] = []
+    var text: String = ""
+    var images: [UIImage] = []
+    
+    
     lazy var imageView: CellImageView = {
         let view = CellImageView()
         view.layer.cornerRadius = 10

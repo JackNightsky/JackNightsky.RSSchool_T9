@@ -39,13 +39,26 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    let subContent: UIStackView = {
+    let stackOfContent: UIStackView = {
         let stack = UIStackView()
-//        stack.sizeToFit()
+
+        stack.axis = .vertical
+        stack.distribution = .equalSpacing
+        stack.alignment = .fill
+        stack.spacing = 40
+        
+        //        stack.sizeToFit()
         stack.backgroundColor = .systemIndigo
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+    
+    func setupStackOfContent() {
+        
+    }
+    
+    
+    
     
     func setupViews(){
         
@@ -85,12 +98,12 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         separatorLine.trailingAnchor.constraint(equalTo: subHeaderView.trailingAnchor, constant: -100).isActive = true
         separatorLine.centerYAnchor.constraint(equalTo: subHeaderView.bottomAnchor).isActive = true
         
-        content.addSubview(subContent)
-        subContent.heightAnchor.constraint(equalToConstant: 500).isActive = true
-        subContent.centerXAnchor.constraint(equalTo: content.centerXAnchor).isActive = true
-        subContent.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 40).isActive = true
-        subContent.widthAnchor.constraint(equalTo: content.widthAnchor).isActive = true
-        subContent.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true
+        content.addSubview(stackOfContent)
+//        stackOfContent.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        stackOfContent.centerXAnchor.constraint(equalTo: content.centerXAnchor).isActive = true
+        stackOfContent.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 40).isActive = true
+        stackOfContent.widthAnchor.constraint(equalTo: content.widthAnchor).isActive = true
+        stackOfContent.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true
         
     }
     
@@ -104,6 +117,7 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         // Do any additional setup after loading the view.
         setupScrollView()
         setupViews()
+        setupStackOfContent()
     }
     
     

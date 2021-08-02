@@ -17,30 +17,9 @@ class ItemsCollectionViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupUI()
-        addCellsTitles()
-    }
-    
-    
-    func addCellsTitles() {
-        for el in FillingData.data {
-            switch el {
-            case .story(let story):
-                titles.append(story.title)
-                types.append(story.type)
-                coverImages.append(story.coverImage)
-            case .gallery(let gallery):
-                titles.append(gallery.title)
-                types.append(gallery.type)
-                coverImages.append(gallery.coverImage)
-            }
-        }
     }
     
     // MARK: - Properties
-    var coverImages: [UIImage] = []
-    var titles: [String] = []
-    var types: [String] = []
-    
     
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
@@ -92,17 +71,29 @@ extension ItemsCollectionViewController {
 extension ItemsCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return titles.count
+        return FillingData.data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         
-        cell.imageView.image = coverImages[indexPath.item]
-        cell.titleLabel.text = titles[indexPath.item].trimmingCharacters(in: CharacterSet.newlines)
-        cell.typeLabel.text = types[indexPath.item]
-        cell.navigationController = self.navigationController!
+        let obj = FillingData.data[indexPath.item]
         
+        switch obj {
+        case .story(let story):
+            cell.imageView.image = story.coverImage
+            cell.titleLabel.text = story.title
+            cell.typeLabel.text = story.type
+            cell.paths = story.paths
+            cell.text = story.text
+        case .gallery(let gallery):
+            cell.imageView.image = gallery.coverImage
+            cell.titleLabel.text = gallery.title
+            cell.typeLabel.text = gallery.type
+            cell.images = gallery.images
+        }
+        
+        cell.navigationController = self.navigationController!
         
         return cell
     }

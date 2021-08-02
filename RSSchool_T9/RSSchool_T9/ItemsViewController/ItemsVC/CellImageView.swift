@@ -38,12 +38,12 @@ class CellImageView: UIImageView {
         let layers1 = self.layer.sublayers
         self.layer.sublayers?.removeAll()
         self.layer.addSublayer(gradient)
-        for layer in layers1! {
-            self.layer.addSublayer(layer)
+        if let layers = layers1 {
+            for layer in layers {
+                self.layer.addSublayer(layer)
+            }
         }
-        
     }
-    
     
     /*
     // Only override draw() if you perform custom drawing.

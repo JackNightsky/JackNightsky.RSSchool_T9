@@ -13,6 +13,7 @@ class ItemsCollectionViewController: UIViewController {
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
+        navigationController?.isNavigationBarHidden = true
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupUI()
@@ -100,6 +101,7 @@ extension ItemsCollectionViewController: UICollectionViewDelegate, UICollectionV
         cell.imageView.image = coverImages[indexPath.item]
         cell.titleLabel.text = titles[indexPath.item].trimmingCharacters(in: CharacterSet.newlines)
         cell.typeLabel.text = types[indexPath.item]
+        cell.navigationController = self.navigationController!
         
         
         return cell

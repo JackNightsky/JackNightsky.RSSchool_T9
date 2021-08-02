@@ -11,6 +11,7 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
+    var navigationController: UINavigationController = UINavigationController()
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +25,15 @@ class CollectionViewCell: UICollectionViewCell {
         setupUI()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let vc: ContentViewController = ContentViewController(self)
+        
+        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .overFullScreen
+        navigationController.modalPresentationCapturesStatusBarAppearance = false
+        navigationController.present(vc, animated: true, completion: nil)
+
+    }
     
     // MARK: - Properties
     lazy var imageView: CellImageView = {
@@ -97,6 +107,7 @@ extension CollectionViewCell {
             titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -5),
             
         ])
-        
     }
 }
+
+

@@ -27,7 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // make tabBarViewController
     func rootViewController() -> UIViewController {
         // items ViewController  plug
-        let itemsViewController =  ItemsCollectionViewController()
+        let itemsViewController = UINavigationController.init(rootViewController: ItemsCollectionViewController())
+            
         
 //        itemsViewController.view.backgroundColor = .orange
         /// set tabBarItem appearance
@@ -49,7 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarControllers.append(settingsViewController)
         tabBarController.viewControllers = tabBarControllers
         /// set VC to default
-        tabBarController.selectedViewController = itemsViewController//itemsViewController
+        tabBarController.selectedViewController = itemsViewController //settingsViewController
         /// off btn edit
         tabBarController.customizableViewControllers = nil
         /// set appearance

@@ -27,16 +27,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // make tabBarViewController
     func rootViewController() -> UIViewController {
         // items ViewController  plug
-        let itemsViewController = UIViewController() // will be change on custom itemsVC
+        let itemsViewController =  ItemsCollectionViewController()
         
-        itemsViewController.view.backgroundColor = .orange
+//        itemsViewController.view.backgroundColor = .orange
         /// set tabBarItem appearance
         itemsViewController.tabBarItem = UITabBarItem.init(title: "Items", image: UIImage.init(systemName: "square.grid.2x2"), tag: 0)
         
         // settings ViewController plug
         let settingsViewController = UIViewController() // will be change on custom itemsVC
         
-        settingsViewController.view.backgroundColor = .purple
+//        settingsViewController.view.backgroundColor = .purple
         /// set tabBarItem appearance
         settingsViewController.tabBarItem = UITabBarItem.init(title: "Settings", image: UIImage.init(systemName: "gear"), tag: 0)
         
@@ -49,7 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarControllers.append(settingsViewController)
         tabBarController.viewControllers = tabBarControllers
         /// set VC to default
-        tabBarController.selectedViewController = itemsViewController
+        tabBarController.selectedViewController = itemsViewController//itemsViewController
         /// off btn edit
         tabBarController.customizableViewControllers = nil
         /// set appearance

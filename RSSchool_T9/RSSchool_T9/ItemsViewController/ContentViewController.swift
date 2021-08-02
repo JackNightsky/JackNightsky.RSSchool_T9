@@ -29,29 +29,44 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         headerView.addSubview(imageView)
         
         typeLabel.text = typeText
+        headerView.addSubview(titleLabel)
         headerView.addSubview(typeLabel)
+        headerView.addSubview(separatorLine)
         
-//        imageView.addSubview(typeLabel)
-//        imageView.addSubview(titleLabel)
-
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             
-            closeButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 30),
+            closeButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 44 + 30),
             closeButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -25),
             closeButton.heightAnchor.constraint(equalToConstant: 40),
             closeButton.widthAnchor.constraint(equalToConstant: 40),
             
-            imageView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 0),
-            imageView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10),
-            imageView.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 20),
-            imageView.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: -20),
+            headerView.heightAnchor.constraint(equalToConstant: 530),
+            headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 44 + 30 + 40 + 30),
+            headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            
+            
+            
+            imageView.topAnchor.constraint(equalTo: headerView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -58),
+            imageView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
+            imageView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20),
 
             typeLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             typeLabel.centerYAnchor.constraint(equalTo: imageView.bottomAnchor),
             typeLabel.heightAnchor.constraint(equalToConstant: typeLabel.intrinsicContentSize.height + 16),
             typeLabel.widthAnchor.constraint(equalToConstant: typeLabel.intrinsicContentSize.width + 60),
-
+            
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 30),
+            titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -30),
+            titleLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -55),
+            
+            
+            separatorLine.heightAnchor.constraint(equalToConstant: 1),
+//            separatorLine.h.constraint(equalToConstant: 1),
+            separatorLine.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 100),
+            separatorLine.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -100),
+            separatorLine.centerYAnchor.constraint(equalTo: headerView.bottomAnchor),
         ])
         
     }
@@ -77,8 +92,6 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
     
     lazy var closeButton: UIButton = {
         let btn = UIButton()
-//        btn.image = UIImage.init(systemName: "cross")
-//        btn.setTitle("X", for: .normal)
         btn.setImage(UIImage.init(systemName: "xmark"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.tintColor = .white
@@ -103,11 +116,11 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
     
     lazy var headerView: UIView = {
         let view = UIView()
-        view.frame = CGRect.init(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 510)
-//        view.backgroundColor = .white
+        view.frame = CGRect.init(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 500)
         view.contentMode = .scaleAspectFill // not compress image
         view.clipsToBounds = false  // clips image's places which not fit in view
         
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -115,24 +128,30 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
     lazy var imageView: CellImageView = {
         let view = CellImageView()
         view.layer.cornerRadius = 10
-        view.layer.borderColor = UIColor.systemGray.cgColor
+        view.layer.borderColor = UIColor.white.cgColor
         view.layer.borderWidth = 1
-        view.translatesAutoresizingMaskIntoConstraints = false
+        
         view.backgroundColor = .white
         view.contentMode = .scaleAspectFill // not compress image
         view.clipsToBounds = true  // clips image's places which not fit in view
 
-
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Rockwell-regular", size: 16)
+        label.font = UIFont(name: "Rockwell-Regular", size: 48)
+        
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.08
+        label.attributedText = NSMutableAttributedString(string: self.titleText,
+                                                         attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         label.textColor = .white
-        label.numberOfLines = 1
-        label.lineBreakMode = .byTruncatingTail
-        label.backgroundColor = self.view.backgroundColor
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+//        label.backgroundColor = self.view.backgroundColor
 
         label.adjustsFontSizeToFitWidth = false
         label.adjustsFontForContentSizeCategory = false
@@ -140,6 +159,7 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         return label
     }()
 
+    
     lazy var typeLabel: UILabel = {
         let label = UILabel()
         
@@ -157,5 +177,13 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         return label
     }()
     
-
+    
+    lazy var separatorLine: UILabel = {
+        let line = UILabel()
+        line.frame = CGRect(x: 0, y: 0, width: 214, height: 2)
+        line.backgroundColor = .white
+        
+        line.translatesAutoresizingMaskIntoConstraints = false
+        return line
+    }()
 }

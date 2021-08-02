@@ -98,7 +98,7 @@ extension ItemsCollectionViewController: UICollectionViewDelegate, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         
         cell.imageView.image = coverImages[indexPath.item]
-        cell.titleLabel.text = titles[indexPath.item]
+        cell.titleLabel.text = titles[indexPath.item].trimmingCharacters(in: CharacterSet.newlines)
         cell.typeLabel.text = types[indexPath.item]
         
         

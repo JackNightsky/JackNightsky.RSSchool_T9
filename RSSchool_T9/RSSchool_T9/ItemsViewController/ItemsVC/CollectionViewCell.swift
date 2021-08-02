@@ -42,28 +42,27 @@ class CollectionViewCell: UICollectionViewCell {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue", size: 15)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.backgroundColor = .green
+        label.font = UIFont(name: "Rockwell-regular", size: 16)
+        label.textColor = .white
+        label.numberOfLines = 1
+        label.lineBreakMode = .byTruncatingTail
+//        label.backgroundColor = .red
         
-        label.adjustsFontSizeToFitWidth = true
-        label.adjustsFontForContentSizeCategory = true
-        label.textColor = .systemBlue
+        label.adjustsFontSizeToFitWidth = false
+        label.adjustsFontForContentSizeCategory = false
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var typeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue", size: 15)
+        label.font = UIFont(name: "Rockwell-Regular", size: 12)
+        label.textColor = UIColor(red: 0.712, green: 0.712, blue: 0.712, alpha: 1)
         label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.backgroundColor = .green
+        label.lineBreakMode = .byTruncatingTail
         
         label.adjustsFontSizeToFitWidth = true
         label.adjustsFontForContentSizeCategory = true
-        label.textColor = .systemBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -87,14 +86,16 @@ extension CollectionViewCell {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
             imageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
-            imageView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10),
-            imageView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -10),
+            imageView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 8),
+            imageView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -8),
             
-            titleLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            typeLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -13),
+            typeLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 10),
             
-            typeLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            typeLabel.centerYAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10)
+            titleLabel.bottomAnchor.constraint(equalTo: typeLabel.topAnchor, constant: -5),
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -5),
+            
         ])
         
     }

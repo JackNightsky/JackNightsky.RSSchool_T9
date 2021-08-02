@@ -12,63 +12,98 @@ import UIKit
 class ContentViewController: UIViewController, UIScrollViewDelegate {
 
     let scrollView = UIScrollView()
-    let contentView = UIView()
+    let content = UIView()
     let image: UIImage
     let titleText: String
     let typeText: String
     
+    func setupScrollView(){
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        content.translatesAutoresizingMaskIntoConstraints = false
+        content.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollView.frame.inset(by: UIEdgeInsets.init(top: 1000, left: 0, bottom: 100, right: 0))
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(content)
+        
+        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        content.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        content.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        content.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        content.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        
+    }
+    
+    let subContent: UIStackView = {
+        let stack = UIStackView()
+//        stack.sizeToFit()
+        stack.backgroundColor = .systemIndigo
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    func setupViews(){
+        
+        content.addSubview(closeButton)
+        closeButton.topAnchor.constraint(equalTo: content.topAnchor, constant: 44 + 30).isActive = true
+        closeButton.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -25).isActive = true
+        closeButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        closeButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        content.addSubview(subHeaderView)
+        subHeaderView.heightAnchor.constraint(equalToConstant: 530).isActive = true
+        subHeaderView.topAnchor.constraint(equalTo: content.topAnchor, constant: 44 + 30 + 40 + 30).isActive = true
+        subHeaderView.leadingAnchor.constraint(equalTo: content.leadingAnchor).isActive = true
+        subHeaderView.trailingAnchor.constraint(equalTo: content.trailingAnchor).isActive = true
+        
+        imageView.image = image
+        subHeaderView.addSubview(imageView)
+        imageView.topAnchor.constraint(equalTo: subHeaderView.topAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: subHeaderView.bottomAnchor, constant: -58).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: subHeaderView.leadingAnchor, constant: 20).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: subHeaderView.trailingAnchor, constant: -20).isActive = true
+        
+        subHeaderView.addSubview(typeLabel)
+        typeLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
+        typeLabel.centerYAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        typeLabel.heightAnchor.constraint(equalToConstant: typeLabel.intrinsicContentSize.height + 16).isActive = true
+        typeLabel.widthAnchor.constraint(equalToConstant: typeLabel.intrinsicContentSize.width + 60).isActive = true
+        
+        subHeaderView.addSubview(titleLabel)
+        titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 30).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -30).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -55).isActive = true
+        
+        subHeaderView.addSubview(separatorLine)
+        separatorLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        separatorLine.leadingAnchor.constraint(equalTo: subHeaderView.leadingAnchor, constant: 100).isActive = true
+        separatorLine.trailingAnchor.constraint(equalTo: subHeaderView.trailingAnchor, constant: -100).isActive = true
+        separatorLine.centerYAnchor.constraint(equalTo: subHeaderView.bottomAnchor).isActive = true
+        
+        content.addSubview(subContent)
+        subContent.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        subContent.centerXAnchor.constraint(equalTo: content.centerXAnchor).isActive = true
+        subContent.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 40).isActive = true
+        subContent.widthAnchor.constraint(equalTo: content.widthAnchor).isActive = true
+        subContent.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true
+        
+    }
+    
+    
+    
+    // MARK: - old code
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
         // Do any additional setup after loading the view.
-        self.view.addSubview(closeButton)
-        self.view.addSubview(headerView)
-        
-        imageView.image = image
-        headerView.addSubview(imageView)
-        
-        typeLabel.text = typeText
-        headerView.addSubview(titleLabel)
-        headerView.addSubview(typeLabel)
-        headerView.addSubview(separatorLine)
-        
-        NSLayoutConstraint.activate([
-            
-            closeButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 44 + 30),
-            closeButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -25),
-            closeButton.heightAnchor.constraint(equalToConstant: 40),
-            closeButton.widthAnchor.constraint(equalToConstant: 40),
-            
-            headerView.heightAnchor.constraint(equalToConstant: 530),
-            headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 44 + 30 + 40 + 30),
-            headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            
-            
-            
-            imageView.topAnchor.constraint(equalTo: headerView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -58),
-            imageView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
-            imageView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20),
-
-            typeLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            typeLabel.centerYAnchor.constraint(equalTo: imageView.bottomAnchor),
-            typeLabel.heightAnchor.constraint(equalToConstant: typeLabel.intrinsicContentSize.height + 16),
-            typeLabel.widthAnchor.constraint(equalToConstant: typeLabel.intrinsicContentSize.width + 60),
-            
-            titleLabel.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 30),
-            titleLabel.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -30),
-            titleLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -55),
-            
-            
-            separatorLine.heightAnchor.constraint(equalToConstant: 1),
-//            separatorLine.h.constraint(equalToConstant: 1),
-            separatorLine.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 100),
-            separatorLine.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -100),
-            separatorLine.centerYAnchor.constraint(equalTo: headerView.bottomAnchor),
-        ])
-        
+        setupScrollView()
+        setupViews()
     }
     
     
@@ -114,7 +149,7 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    lazy var headerView: UIView = {
+    lazy var subHeaderView: UIView = {
         let view = UIView()
         view.frame = CGRect.init(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 500)
         view.contentMode = .scaleAspectFill // not compress image
@@ -162,6 +197,11 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
     
     lazy var typeLabel: UILabel = {
         let label = UILabel()
+        
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.08
+        label.attributedText = NSMutableAttributedString(string: typeText,
+                                                         attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
         label.textAlignment = .center
         label.font = UIFont(name: "Rockwell-Regular", size: 24)

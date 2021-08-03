@@ -97,8 +97,38 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
     
     func setupStackOfContentGallery() {
         for image in cell.images {
-            print("image:", image)
+            
+            let container: UIView
+            container = UIView()
+            container.layer.borderWidth = 1
+            container.layer.borderColor = UIColor.white.cgColor
+            container.layer.cornerRadius = 10
+            
+            container.translatesAutoresizingMaskIntoConstraints = false
+            
+            let imageView: UIImageView
+            imageView = UIImageView.init(image: image)
+            imageView.layer.cornerRadius = 10
+            imageView.layer.borderColor = UIColor.white.cgColor
+            imageView.layer.borderWidth = 1
+            
+            imageView.backgroundColor = .white
+            imageView.contentMode = .scaleAspectFill // not compress image
+            imageView.clipsToBounds = true  // clips image's places which not fit in view
+
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(imageView)
+            
+            imageView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/2 + 20).isActive = true
+            imageView.topAnchor.constraint(equalTo: container.topAnchor, constant: 10).isActive = true
+            imageView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10).isActive = true
+            imageView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10).isActive = true
+            imageView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10).isActive = true
+            
+            stackOfContent.addArrangedSubview(container)
+            
         }
+        stackOfContent.spacing = 20
     }
     
     

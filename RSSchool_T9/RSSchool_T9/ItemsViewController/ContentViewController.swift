@@ -53,8 +53,52 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         return stack
     }()
     
-    func setupStackOfContent() {
+    func setupStackOfContentStory() {
+
+//        cell.paths
+        // :-) article
+        let article: UILabel
+        article = UILabel()
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.2
+        article.attributedText = NSMutableAttributedString(string: cell.text,
+                                                         attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        article.textAlignment = .left
+        article.font = UIFont(name: "Rockwell-Regular", size: 24)
+        article.textColor = .white
+        article.backgroundColor = self.view.backgroundColor
+        article.layer.allowsEdgeAntialiasing = true
+        article.lineBreakMode = .byWordWrapping
+        article.numberOfLines = 0
+        article.clipsToBounds = true
+        article.translatesAutoresizingMaskIntoConstraints = false
         
+        let articleSection: UIView
+        articleSection = UIView()
+        articleSection.layer.borderWidth = 1
+        articleSection.layer.borderColor = UIColor.white.cgColor
+        articleSection.layer.cornerRadius = 10
+        
+        articleSection.addSubview(article)
+        stackOfContent.addSubview(articleSection)
+        
+        articleSection.translatesAutoresizingMaskIntoConstraints = false
+        articleSection.topAnchor.constraint(equalTo: stackOfContent.topAnchor).isActive = true
+        articleSection.leadingAnchor.constraint(equalTo: stackOfContent.leadingAnchor).isActive = true
+        articleSection.trailingAnchor.constraint(equalTo: stackOfContent.trailingAnchor).isActive = true
+        articleSection.bottomAnchor.constraint(equalTo: stackOfContent.bottomAnchor, constant: -30).isActive = true
+        
+        article.topAnchor.constraint(equalTo: articleSection.topAnchor, constant: 30).isActive = true
+        article.leadingAnchor.constraint(equalTo: articleSection.leadingAnchor, constant: 30).isActive = true
+        article.trailingAnchor.constraint(equalTo: articleSection.trailingAnchor, constant: -40).isActive = true
+        article.bottomAnchor.constraint(equalTo: articleSection.bottomAnchor).isActive = true
+
+    }
+    
+    func setupStackOfContentGallery() {
+        for image in cell.images {
+            print("image:", image)
+        }
     }
     
     
@@ -99,10 +143,12 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         separatorLine.centerYAnchor.constraint(equalTo: subHeaderView.bottomAnchor).isActive = true
         
         content.addSubview(stackOfContent)
-//        stackOfContent.heightAnchor.constraint(equalToConstant: 500).isActive = true
-        stackOfContent.centerXAnchor.constraint(equalTo: content.centerXAnchor).isActive = true
+//        stackOfContent.heightAnchor.constraint(equalToConstant: stackOfContent.intrinsicContentSize.height).isActive = true
+//        stackOfContent.centerXAnchor.constraint(equalTo: content.centerXAnchor).isActive = true
         stackOfContent.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 40).isActive = true
-        stackOfContent.widthAnchor.constraint(equalTo: content.widthAnchor).isActive = true
+//        stackOfContent.widthAnchor.constraint(equalTo: content.widthAnchor).isActive = true
+        stackOfContent.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 20).isActive = true
+        stackOfContent.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -20).isActive = true
         stackOfContent.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true
         
     }
@@ -117,15 +163,21 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         // Do any additional setup after loading the view.
         setupScrollView()
         setupViews()
-        setupStackOfContent()
+        if self.typeText == "Story" {
+            setupStackOfContentStory()
+        } else {
+            setupStackOfContentGallery()
+        }
     }
     
+    var cell: CollectionViewCell
     
     init(_ cell: CollectionViewCell)
     {
         self.image = cell.imageView.image!
         self.titleText = cell.titleLabel.text!
         self.typeText = cell.typeLabel.text!
+        self.cell = cell
 
         super.init(nibName: nil, bundle: nil)
     }

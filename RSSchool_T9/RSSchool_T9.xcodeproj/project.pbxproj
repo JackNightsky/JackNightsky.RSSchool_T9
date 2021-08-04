@@ -202,12 +202,13 @@
 			path = "story-6";
 			sourceTree = "<group>";
 		};
-		049577AE26B458170007910A /* ItemsViewController */ = {
+		049577AE26B458170007910A /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
 				0401C0E826B7875600FB1668 /* ItemsVC */,
+				046B771C26BA56DA00EF6787 /* SettingsVC */,
 			);
-			path = ItemsViewController;
+			path = TabBarController;
 			sourceTree = "<group>";
 		};
 		04A1F4DA26B1E39200DBDCA8 /* Don't use */ = {
@@ -245,8 +246,7 @@
 				2BB9E76426AB605900112651 /* Assets.xcassets */,
 				2BB9E76626AB605900112651 /* LaunchScreen.storyboard */,
 				2BB9E76926AB605900112651 /* Info.plist */,
-				046B771C26BA56DA00EF6787 /* SettingsVC */,
-				049577AE26B458170007910A /* ItemsViewController */,
+				049577AE26B458170007910A /* TabBarController */,
 				046B773826BAD41000EF6787 /* ItemsNavigationController.swift */,
 			);
 			path = RSSchool_T9;

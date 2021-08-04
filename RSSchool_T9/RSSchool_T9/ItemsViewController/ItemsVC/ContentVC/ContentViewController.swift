@@ -57,11 +57,9 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
 
 //        cell.paths
         let carousel = Carousel(cell.paths)
-        let reuse = UICollectionReusableView()
-        carousel.addSubview(reuse)
-//        carousel.bounds = CGRect.init(x: 0, y: 0, width: 500, height: 100)
-//        carousel.frame = CGRect.init(x: 0, y: 0, width: 500, height: 100)
-//        carousel.backgroundColor = .orange
+        
+        carousel.drawColorHEX = (navigationController as! ItemsNavigationController).drawColorHEX
+        carousel.drawStories = (navigationController as! ItemsNavigationController).drawStories
         
         carousel.translatesAutoresizingMaskIntoConstraints = false
 //        carousel.widthAnchor.constraint(equalToConstant: 500).isActive = true

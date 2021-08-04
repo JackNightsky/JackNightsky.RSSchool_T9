@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // make tabBarViewController
     func rootViewController() -> UIViewController {
         // items ViewController  plug
-        let itemsViewController = UINavigationController.init(rootViewController: ItemsCollectionViewController())
+        let itemsViewController = ItemsNavigationController.init(rootViewController: ItemsCollectionViewController())
             
         
 //        itemsViewController.view.backgroundColor = .orange
@@ -59,7 +59,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarController.tabBar.barTintColor = .white
         
         
-        (settingsViewController.viewControllers.first as! SettingsViewController).delegate = itemsViewController.viewControllers.first as! SettingsDrawColor
+        (settingsViewController.viewControllers.first as! SettingsViewController).delegate = itemsViewController
         
         
         return tabBarController

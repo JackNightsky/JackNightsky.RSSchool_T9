@@ -30,8 +30,6 @@ class CollectionViewCell: UICollectionViewCell {
         vc.navContrl = self.navigationController
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .overFullScreen
-//        navigationController.modalPresentationCapturesStatusBarAppearance = false
-//        navigationController.present(vc, animated: true, completion: nil)
 
         let transition = CATransition()
             transition.duration = 0.3

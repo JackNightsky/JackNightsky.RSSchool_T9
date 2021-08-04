@@ -13,6 +13,9 @@ class Carousel: UICollectionView {
 
     let paths: [CGPath]
     
+    var drawColorHEX: String!
+    var drawStories: Bool!
+    
     init(_ paths: [CGPath]) {
         self.paths = paths
         
@@ -54,7 +57,8 @@ extension Carousel: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        (cell as! CarouselCell).draw(true)
+        cell.tintColor = UIColor.init(fromHexString: drawColorHEX)
+        (cell as! CarouselCell).draw(drawStories)
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

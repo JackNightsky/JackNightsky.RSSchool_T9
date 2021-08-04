@@ -19,6 +19,7 @@
 		046B772C26BA582900EF6787 /* UIColor+colorFromHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B772B26BA582900EF6787 /* UIColor+colorFromHexString.m */; };
 		046B773126BA809400EF6787 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B773026BA809400EF6787 /* Carousel.swift */; };
 		046B773326BA82BE00EF6787 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B773226BA82BE00EF6787 /* CarouselCell.swift */; };
+		046B773926BAD41000EF6787 /* ItemsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B773826BAD41000EF6787 /* ItemsNavigationController.swift */; };
 		2BB9E75C26AB605700112651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9E75B26AB605700112651 /* AppDelegate.swift */; };
 		2BB9E75E26AB605700112651 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9E75D26AB605700112651 /* SceneDelegate.swift */; };
 		2BB9E76326AB605700112651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9E76126AB605700112651 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		046B772B26BA582900EF6787 /* UIColor+colorFromHexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+colorFromHexString.m"; sourceTree = "<group>"; };
 		046B773026BA809400EF6787 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		046B773226BA82BE00EF6787 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
+		046B773826BAD41000EF6787 /* ItemsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsNavigationController.swift; sourceTree = "<group>"; };
 		2BB9E75826AB605700112651 /* RSSchool_T9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T9.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB9E75B26AB605700112651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB9E75D26AB605700112651 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				2BB9E76926AB605900112651 /* Info.plist */,
 				046B771C26BA56DA00EF6787 /* SettingsVC */,
 				049577AE26B458170007910A /* ItemsViewController */,
+				046B773826BAD41000EF6787 /* ItemsNavigationController.swift */,
 			);
 			path = RSSchool_T9;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				0401C0EA26B787E200FB1668 /* ContentViewController.swift in Sources */,
 				046B772C26BA582900EF6787 /* UIColor+colorFromHexString.m in Sources */,
 				2BB9F30E26AF5FA900F43852 /* story-4-path.swift in Sources */,
+				046B773926BAD41000EF6787 /* ItemsNavigationController.swift in Sources */,
 				046B773126BA809400EF6787 /* Carousel.swift in Sources */,
 				2BB9E75E26AB605700112651 /* SceneDelegate.swift in Sources */,
 				046B772026BA571100EF6787 /* SettingsViewController.m in Sources */,

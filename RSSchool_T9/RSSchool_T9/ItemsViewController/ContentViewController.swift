@@ -56,6 +56,19 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
     func setupStackOfContentStory() {
 
 //        cell.paths
+        let carousel = Carousel(cell.paths)
+//        carousel.bounds = CGRect.init(x: 0, y: 0, width: 500, height: 100)
+//        carousel.frame = CGRect.init(x: 0, y: 0, width: 500, height: 100)
+//        carousel.backgroundColor = .orange
+        
+        carousel.translatesAutoresizingMaskIntoConstraints = false
+//        carousel.widthAnchor.constraint(equalToConstant: 500).isActive = true
+        carousel.heightAnchor.constraint(equalToConstant: 75).isActive = true
+        stackOfContent.addArrangedSubview(carousel)
+//        carousel
+        
+        
+        
         // :-) article
         let article: UILabel
         article = UILabel()
@@ -80,13 +93,13 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         articleSection.layer.cornerRadius = 10
         
         articleSection.addSubview(article)
-        stackOfContent.addSubview(articleSection)
+        stackOfContent.addArrangedSubview(articleSection)
         
         articleSection.translatesAutoresizingMaskIntoConstraints = false
-        articleSection.topAnchor.constraint(equalTo: stackOfContent.topAnchor).isActive = true
-        articleSection.leadingAnchor.constraint(equalTo: stackOfContent.leadingAnchor).isActive = true
-        articleSection.trailingAnchor.constraint(equalTo: stackOfContent.trailingAnchor).isActive = true
-        articleSection.bottomAnchor.constraint(equalTo: stackOfContent.bottomAnchor, constant: -30).isActive = true
+//        articleSection.topAnchor.constraint(equalTo: stackOfContent.topAnchor).isActive = true
+//        articleSection.leadingAnchor.constraint(equalTo: stackOfContent.leadingAnchor).isActive = true
+//        articleSection.trailingAnchor.constraint(equalTo: stackOfContent.trailingAnchor).isActive = true
+//        articleSection.bottomAnchor.constraint(equalTo: stackOfContent.bottomAnchor, constant: -30).isActive = true
         
         article.topAnchor.constraint(equalTo: articleSection.topAnchor, constant: 30).isActive = true
         article.leadingAnchor.constraint(equalTo: articleSection.leadingAnchor, constant: 30).isActive = true
@@ -99,20 +112,20 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         for image in cell.images {
             
             let container: UIView
-            container = UIView()
-            container.layer.borderWidth = 1
-            container.layer.borderColor = UIColor.white.cgColor
-            container.layer.cornerRadius = 10
-            container.translatesAutoresizingMaskIntoConstraints = false
+                container = UIView()
+                container.layer.borderWidth = 1
+                container.layer.borderColor = UIColor.white.cgColor
+                container.layer.cornerRadius = 10
+                container.translatesAutoresizingMaskIntoConstraints = false
             
             let imageView: UIImageView
-            imageView = UIImageView.init(image: image)
-            imageView.layer.cornerRadius = 10
-            imageView.layer.borderColor = UIColor.white.cgColor
-            imageView.layer.borderWidth = 1
-            imageView.backgroundColor = .white
-            imageView.contentMode = .scaleAspectFill // not compress image
-            imageView.clipsToBounds = true  // clips image's places which not fit in view
+                imageView = UIImageView.init(image: image)
+                imageView.layer.cornerRadius = 10
+                imageView.layer.borderColor = UIColor.white.cgColor
+                imageView.layer.borderWidth = 1
+                imageView.backgroundColor = .white
+                imageView.contentMode = .scaleAspectFill // not compress image
+                imageView.clipsToBounds = true  // clips image's places which not fit in view
             
             container.addSubview(imageView)
             

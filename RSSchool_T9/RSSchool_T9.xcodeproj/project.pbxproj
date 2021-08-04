@@ -17,6 +17,8 @@
 		046B772526BA578F00EF6787 /* SettingsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B772426BA578F00EF6787 /* SettingsItem.m */; };
 		046B772826BA57D600EF6787 /* ColorItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B772726BA57D600EF6787 /* ColorItemTableViewCell.m */; };
 		046B772C26BA582900EF6787 /* UIColor+colorFromHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B772B26BA582900EF6787 /* UIColor+colorFromHexString.m */; };
+		046B773126BA809400EF6787 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B773026BA809400EF6787 /* Carousel.swift */; };
+		046B773326BA82BE00EF6787 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B773226BA82BE00EF6787 /* CarouselCell.swift */; };
 		2BB9E75C26AB605700112651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9E75B26AB605700112651 /* AppDelegate.swift */; };
 		2BB9E75E26AB605700112651 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9E75D26AB605700112651 /* SceneDelegate.swift */; };
 		2BB9E76326AB605700112651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9E76126AB605700112651 /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		046B772726BA57D600EF6787 /* ColorItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorItemTableViewCell.m; sourceTree = "<group>"; };
 		046B772A26BA582900EF6787 /* UIColor+colorFromHexString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+colorFromHexString.h"; sourceTree = "<group>"; };
 		046B772B26BA582900EF6787 /* UIColor+colorFromHexString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+colorFromHexString.m"; sourceTree = "<group>"; };
+		046B773026BA809400EF6787 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		046B773226BA82BE00EF6787 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		2BB9E75826AB605700112651 /* RSSchool_T9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T9.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB9E75B26AB605700112651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB9E75D26AB605700112651 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,12 +148,22 @@
 			path = ImageViewer;
 			sourceTree = "<group>";
 		};
+		046B773426BA83FB00EF6787 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				046B773026BA809400EF6787 /* Carousel.swift */,
+				046B773226BA82BE00EF6787 /* CarouselCell.swift */,
+			);
+			path = Carousel;
+			sourceTree = "<group>";
+		};
 		049577AE26B458170007910A /* ItemsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0401C0E826B7875600FB1668 /* ItemsVC */,
 				0401C0E926B787E200FB1668 /* ContentViewController.swift */,
 				046B772D26BA5B8400EF6787 /* ImageViewer */,
+				046B773426BA83FB00EF6787 /* Carousel */,
 			);
 			path = ItemsViewController;
 			sourceTree = "<group>";
@@ -347,10 +361,12 @@
 				0401C0E526B76A6400FB1668 /* CellImageView.swift in Sources */,
 				0446A9C026BA45DE007A4322 /* ImageScrollView.swift in Sources */,
 				046B772526BA578F00EF6787 /* SettingsItem.m in Sources */,
+				046B773326BA82BE00EF6787 /* CarouselCell.swift in Sources */,
 				2BB9F2EC26AF1F6200F43852 /* story-1-path.swift in Sources */,
 				0401C0EA26B787E200FB1668 /* ContentViewController.swift in Sources */,
 				046B772C26BA582900EF6787 /* UIColor+colorFromHexString.m in Sources */,
 				2BB9F30E26AF5FA900F43852 /* story-4-path.swift in Sources */,
+				046B773126BA809400EF6787 /* Carousel.swift in Sources */,
 				2BB9E75E26AB605700112651 /* SceneDelegate.swift in Sources */,
 				046B772026BA571100EF6787 /* SettingsViewController.m in Sources */,
 			);

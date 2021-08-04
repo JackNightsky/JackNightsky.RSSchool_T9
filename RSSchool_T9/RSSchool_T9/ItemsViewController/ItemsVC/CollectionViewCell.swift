@@ -40,6 +40,7 @@ class CollectionViewCell: UICollectionViewCell {
             transition.subtype = CATransitionSubtype.fromTop
         navigationController.view.layer.add(transition, forKey: nil)
         navigationController.pushViewController(vc, animated: false)
+        UIView.animate(withDuration: 0.3, animations: {self.navigationController.tabBarController?.tabBar.alpha = 0})
         navigationController.tabBarController?.tabBar.isHidden = true
     }
     

@@ -269,7 +269,11 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromBottom
         navigationController?.view.layer.add(transition, forKey: nil)
+        navigationController?.tabBarController?.tabBar.isHidden = false
+        UIView.animate(withDuration: 0.3, animations: {self.navigationController?.tabBarController?.tabBar.alpha = 1})
+        
         _ = navigationController?.popViewController(animated: false)
+        
     }
     
     

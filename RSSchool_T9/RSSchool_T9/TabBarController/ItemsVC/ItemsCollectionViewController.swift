@@ -42,9 +42,9 @@ extension ItemsCollectionViewController {
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            collectionView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
+            collectionView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -98,5 +98,6 @@ extension ItemsCollectionViewController: UICollectionViewDelegate, UICollectionV
         
         return cell
     }
+    
     
 }

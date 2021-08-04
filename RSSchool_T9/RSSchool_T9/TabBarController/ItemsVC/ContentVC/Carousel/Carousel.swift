@@ -9,15 +9,25 @@
 
 import UIKit
 
-class Carousel: UICollectionView {
+class Carousel: UICollectionView, SettingsDrawColor {
+    func setDrawColor(_ drawColorHEX: String, andDrawStories drawStories: Bool) {
+        self.drawColorHEX = drawColorHEX
+        self.drawStories = drawStories
+    }
+    
 
     let paths: [CGPath]
     
     var drawColorHEX: String!
     var drawStories: Bool!
     
+    var settings: SettingsViewController!
+    
     init(_ paths: [CGPath]) {
         self.paths = paths
+        
+        
+        print()
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -28,7 +38,6 @@ class Carousel: UICollectionView {
         
         super.init(frame: .zero, collectionViewLayout: layout)
         contentInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 30)
-
         delegate = self
         dataSource = self
         register(CarouselCell.self, forCellWithReuseIdentifier: CarouselCell.reuseId)

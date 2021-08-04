@@ -207,6 +207,7 @@
 		049577AE26B458170007910A /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
+				046B773826BAD41000EF6787 /* ItemsNavigationController.swift */,
 				0401C0E826B7875600FB1668 /* ItemsVC */,
 				046B771C26BA56DA00EF6787 /* SettingsVC */,
 			);
@@ -250,7 +251,6 @@
 				2BB9E76626AB605900112651 /* LaunchScreen.storyboard */,
 				2BB9E76926AB605900112651 /* Info.plist */,
 				049577AE26B458170007910A /* TabBarController */,
-				046B773826BAD41000EF6787 /* ItemsNavigationController.swift */,
 			);
 			path = RSSchool_T9;
 			sourceTree = "<group>";

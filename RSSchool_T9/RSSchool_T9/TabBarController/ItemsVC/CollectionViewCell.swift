@@ -20,7 +20,6 @@ class CollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        setupUI()
     }
     
     override func layoutSubviews() {
@@ -35,7 +34,6 @@ class CollectionViewCell: UICollectionViewCell {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let vc: ContentViewController = ContentViewController(self)
-        vc.navContrl = self.navigationController
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .overFullScreen
 

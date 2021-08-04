@@ -83,12 +83,12 @@ extension ItemsCollectionViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if view.safeAreaLayoutGuide.layoutFrame.width > view.safeAreaLayoutGuide.layoutFrame.height {
-            print("horizontal")
-            let height = (view.safeAreaLayoutGuide.layoutFrame.height - 40) // UIScreen.main.bounds.width * 0.40
-            return CGSize(width: height * 1.1, height: height)
+//            print("horizontal")
+            let height = (collectionView.frame.height * 0.9) // UIScreen.main.bounds.width * 0.40
+            return CGSize(width: height * 0.8, height: height)
         } else {
-            print("vertical")
-            let width = (view.safeAreaLayoutGuide.layoutFrame.width - 80) / 2 // UIScreen.main.bounds.width * 0.40
+//            print("vertical")
+            let width = (collectionView.frame.width - 80) / 2 // UIScreen.main.bounds.width * 0.40
             return CGSize(width: width, height: width*11/9)
         }
     }

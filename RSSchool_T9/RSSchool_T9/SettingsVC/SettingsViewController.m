@@ -80,7 +80,6 @@
     
     [self.tableView registerClass:ColorItemTableViewCell.class forCellReuseIdentifier:@"CellId"]; // check
     
-    self.tableView.scrollEnabled = NO;
     self.tableView.allowsMultipleSelection = NO;
     [self.tableView setTintColor: UIColor.redColor];
     

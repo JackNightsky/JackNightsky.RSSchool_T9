@@ -120,7 +120,6 @@
 			children = (
 				046B771E26BA571100EF6787 /* SettingsViewController.h */,
 				046B771F26BA571100EF6787 /* SettingsViewController.m */,
-				046B771D26BA571100EF6787 /* RSSchool_T9-Bridging-Header.h */,
 				046B772226BA576900EF6787 /* Item */,
 				046B772126BA576300EF6787 /* Cells */,
 			);
@@ -238,6 +237,7 @@
 		2BB9E75A26AB605700112651 /* RSSchool_T9 */ = {
 			isa = PBXGroup;
 			children = (
+				046B771D26BA571100EF6787 /* RSSchool_T9-Bridging-Header.h */,
 				046B772926BA580500EF6787 /* Categories */,
 				04A1F4DA26B1E39200DBDCA8 /* Don't use */,
 				2BB9F28F26ADFAEB00F43852 /* Data */,
@@ -577,7 +577,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.username.RSSchool-T9";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RSSchool_T9/SettingsVC/RSSchool_T9-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "RSSchool_T9/RSSchool_T9-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -599,7 +599,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.username.RSSchool-T9";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "RSSchool_T9/SettingsVC/RSSchool_T9-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "RSSchool_T9/RSSchool_T9-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

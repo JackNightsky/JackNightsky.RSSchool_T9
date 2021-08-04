@@ -16,7 +16,7 @@ class CarouselCell: UICollectionViewCell {
     
     var timer: Timer?
     var fireDate: Date?
-    var time: TimeInterval = 1
+    var time: TimeInterval = 3
     
     static let reuseId = "CarouselCell"
     
@@ -27,6 +27,11 @@ class CarouselCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    enum Constants {
+        static let interval: TimeInterval = 1 / 60
+        static let step: (TimeInterval) -> CGFloat = { time in CGFloat(1 / (60 * time))}
     }
     
     
@@ -45,10 +50,10 @@ class CarouselCell: UICollectionViewCell {
             
             timer?.invalidate()
             
-            let timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [self] (timer) in
+            let timer = Timer.scheduledTimer(withTimeInterval: Constants.interval, repeats: true) { [self] (timer) in
                 if let fireDate = self.fireDate,
                    Date().timeIntervalSince1970 - fireDate.timeIntervalSince1970 <= time {
-                    drawLayer.strokeEnd += 0.015
+                    drawLayer.strokeEnd += Constants.step(time) + 0.0001
                 } else {
                     timer.invalidate()
                 }

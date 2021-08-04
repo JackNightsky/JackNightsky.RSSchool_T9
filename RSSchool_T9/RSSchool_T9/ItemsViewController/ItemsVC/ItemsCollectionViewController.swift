@@ -83,7 +83,7 @@ extension ItemsCollectionViewController: UICollectionViewDelegate, UICollectionV
         switch obj {
         case .story(let story):
             cell.imageView.image = story.coverImage
-            cell.titleLabel.text = story.title
+            cell.titleLabel.text = story.title.trimmingCharacters(in: NSCharacterSet.newlines)
             cell.typeLabel.text = story.type
             cell.paths = story.paths
             cell.text = story.text

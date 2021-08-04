@@ -11,7 +11,7 @@
 		0401C0E026B7462200FB1668 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401C0DF26B7462200FB1668 /* CollectionViewCell.swift */; };
 		0401C0E526B76A6400FB1668 /* CellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401C0E426B76A6400FB1668 /* CellImageView.swift */; };
 		0401C0EA26B787E200FB1668 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401C0E926B787E200FB1668 /* ContentViewController.swift */; };
-		0446A9BA26B8DF64007A4322 /* PhotoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446A9B926B8DF64007A4322 /* PhotoViewer.swift */; };
+		0446A9BA26B8DF64007A4322 /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446A9B926B8DF64007A4322 /* ImageViewer.swift */; };
 		0446A9C026BA45DE007A4322 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446A9BF26BA45DE007A4322 /* ImageScrollView.swift */; };
 		046B772026BA571100EF6787 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B771F26BA571100EF6787 /* SettingsViewController.m */; };
 		046B772526BA578F00EF6787 /* SettingsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B772426BA578F00EF6787 /* SettingsItem.m */; };
@@ -42,7 +42,7 @@
 		0401C0DF26B7462200FB1668 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0401C0E426B76A6400FB1668 /* CellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellImageView.swift; sourceTree = "<group>"; };
 		0401C0E926B787E200FB1668 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		0446A9B926B8DF64007A4322 /* PhotoViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewer.swift; sourceTree = "<group>"; };
+		0446A9B926B8DF64007A4322 /* ImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
 		0446A9BF26BA45DE007A4322 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		046B771D26BA571100EF6787 /* RSSchool_T9-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSSchool_T9-Bridging-Header.h"; sourceTree = "<group>"; };
 		046B771E26BA571100EF6787 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -135,13 +135,21 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		046B772D26BA5B8400EF6787 /* ImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				0446A9B926B8DF64007A4322 /* ImageViewer.swift */,
+				0446A9BF26BA45DE007A4322 /* ImageScrollView.swift */,
+			);
+			path = ImageViewer;
+			sourceTree = "<group>";
+		};
 		049577AE26B458170007910A /* ItemsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0401C0E826B7875600FB1668 /* ItemsVC */,
 				0401C0E926B787E200FB1668 /* ContentViewController.swift */,
-				0446A9B926B8DF64007A4322 /* PhotoViewer.swift */,
-				0446A9BF26BA45DE007A4322 /* ImageScrollView.swift */,
+				046B772D26BA5B8400EF6787 /* ImageViewer */,
 			);
 			path = ItemsViewController;
 			sourceTree = "<group>";
@@ -335,7 +343,7 @@
 				046B772826BA57D600EF6787 /* ColorItemTableViewCell.m in Sources */,
 				2BB9F30B26AF5EEC00F43852 /* story-3-path.swift in Sources */,
 				2BB9F29126ADFAF100F43852 /* Data.swift in Sources */,
-				0446A9BA26B8DF64007A4322 /* PhotoViewer.swift in Sources */,
+				0446A9BA26B8DF64007A4322 /* ImageViewer.swift in Sources */,
 				0401C0E526B76A6400FB1668 /* CellImageView.swift in Sources */,
 				0446A9C026BA45DE007A4322 /* ImageScrollView.swift in Sources */,
 				046B772526BA578F00EF6787 /* SettingsItem.m in Sources */,

@@ -9,7 +9,7 @@
 
 import UIKit
 
-class PhotoViewer: UIViewController {
+class ImageViewer: UIViewController {
     
     let image: UIImage
     var scrollView: ImageScrollView!

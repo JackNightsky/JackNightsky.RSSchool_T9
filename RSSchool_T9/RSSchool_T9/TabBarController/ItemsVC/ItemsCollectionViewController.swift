@@ -66,7 +66,31 @@ extension ItemsCollectionViewController {
         
         return layout
     }
+    
+    override func viewWillTransition(to size: CGSize,
+                            with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        print("turn")
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
 }
+
+
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension ItemsCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        print("badabum")
+            let width = (view.safeAreaLayoutGuide.layoutFrame.width - 80) / 2 // UIScreen.main.bounds.width * 0.40
+            return CGSize(width: width, height: width*11/9)
+        
+        }
+    
+}
+
 
 // MARK: - UICollectionViewDelegate & Data Source
 extension ItemsCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {

@@ -26,6 +26,7 @@
 		046B774326BAE6C400EF6787 /* s5-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 046B774126BAE6C400EF6787 /* s5-title.txt */; };
 		046B774626BAE6D200EF6787 /* s6-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 046B774426BAE6D200EF6787 /* s6-title.txt */; };
 		046B774726BAE6D200EF6787 /* s6-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 046B774526BAE6D200EF6787 /* s6-text.txt */; };
+		046B774B26BB15E600EF6787 /* CollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B774A26BB15E600EF6787 /* CollectionLayout.swift */; };
 		2BB9E75C26AB605700112651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9E75B26AB605700112651 /* AppDelegate.swift */; };
 		2BB9E75E26AB605700112651 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9E75D26AB605700112651 /* SceneDelegate.swift */; };
 		2BB9E76326AB605700112651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9E76126AB605700112651 /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		046B774126BAE6C400EF6787 /* s5-title.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s5-title.txt"; sourceTree = "<group>"; };
 		046B774426BAE6D200EF6787 /* s6-title.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s6-title.txt"; sourceTree = "<group>"; };
 		046B774526BAE6D200EF6787 /* s6-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s6-text.txt"; sourceTree = "<group>"; };
+		046B774A26BB15E600EF6787 /* CollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionLayout.swift; sourceTree = "<group>"; };
 		2BB9E75826AB605700112651 /* RSSchool_T9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T9.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB9E75B26AB605700112651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB9E75D26AB605700112651 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				0401C0DC26B7450100FB1668 /* ItemsCollectionViewController.swift */,
+				046B774A26BB15E600EF6787 /* CollectionLayout.swift */,
 				0401C0DF26B7462200FB1668 /* CollectionViewCell.swift */,
 				0401C0E426B76A6400FB1668 /* CellImageView.swift */,
 				046B773726BAD08B00EF6787 /* ContentVC */,
@@ -414,6 +417,7 @@
 				2BB9F2EC26AF1F6200F43852 /* story-1-path.swift in Sources */,
 				0401C0EA26B787E200FB1668 /* ContentViewController.swift in Sources */,
 				046B772C26BA582900EF6787 /* UIColor+colorFromHexString.m in Sources */,
+				046B774B26BB15E600EF6787 /* CollectionLayout.swift in Sources */,
 				046B773F26BAE1A400EF6787 /* story-6-path.swift in Sources */,
 				2BB9F30E26AF5FA900F43852 /* story-4-path.swift in Sources */,
 				046B773926BAD41000EF6787 /* ItemsNavigationController.swift in Sources */,

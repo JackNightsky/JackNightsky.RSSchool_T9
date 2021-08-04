@@ -15,14 +15,22 @@ class CollectionViewCell: UICollectionViewCell {
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        setupUI()
     }
     
     override func layoutSubviews() {
-        setupUI()
+        super.layoutSubviews()
+
+    }
+    
+    override class var requiresConstraintBasedLayout: Bool {
+        
+        get { true }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -93,17 +101,14 @@ class CollectionViewCell: UICollectionViewCell {
 
 // MARK: - UI Setup
 extension CollectionViewCell {
-    private func setupUI() {
-//        self.backgroundColor = .black
+    func setupUI() {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.black.cgColor
         self.layer.cornerRadius = 18
         
-        
         self.contentView.addSubview(imageView)
         imageView.addSubview(typeLabel)
         imageView.addSubview(titleLabel)
-        
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),

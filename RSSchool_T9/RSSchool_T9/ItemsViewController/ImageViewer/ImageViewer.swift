@@ -20,6 +20,7 @@ class ImageViewer: UIViewController {
         // Do any additional setup after loading the view.
         
         scrollView = ImageScrollView(frame: view.bounds)
+        scrollView.imageViewer = self
         
         setupImageScrollView()
         setupCloseButton()
@@ -60,6 +61,7 @@ class ImageViewer: UIViewController {
     }
     
     
+    
     lazy var closeButton: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage.init(systemName: "xmark"), for: .normal)
@@ -80,6 +82,7 @@ class ImageViewer: UIViewController {
     }()
 
     @objc func closeVC(_ sender : UIButton) {
+//        print("scrollView.contentSize:", scrollView.contentSize)
         self.dismiss(animated: true, completion: nil)
     }
     

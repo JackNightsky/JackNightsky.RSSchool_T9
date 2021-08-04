@@ -126,7 +126,7 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
             let openImageViewerButton: UIButton
             openImageViewerButton = UIButton()
             openImageViewerButton.backgroundColor = .clear
-//            openImageViewerButton.
+            openImageViewerButton.imageView?.image = image
             
             openImageViewerButton.addTarget(self, action: #selector(openImageViewer), for: .touchDown)
             
@@ -147,7 +147,7 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
     var navContrl: UINavigationController!
     
     @objc func openImageViewer(_ sender : UIButton) {
-        let imageViewer = ImageViewer(image)
+        let imageViewer = ImageViewer(sender.imageView!.image!)
         
         imageViewer.modalTransitionStyle = .coverVertical
         imageViewer.modalPresentationStyle = .overFullScreen
@@ -159,7 +159,7 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
     func setupViews(){
         
         content.addSubview(closeButton)
-        closeButton.topAnchor.constraint(equalTo: content.topAnchor, constant: 44 + 30).isActive = true
+        closeButton.topAnchor.constraint(equalTo: content.topAnchor, constant: 30).isActive = true
         closeButton.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -25).isActive = true
         closeButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         closeButton.widthAnchor.constraint(equalToConstant: 40).isActive = true

@@ -12,6 +12,8 @@ import UIKit
 class ImageScrollView: UIScrollView {
 
     var imageView: UIImageView!
+    var imageViewer: ImageViewer!
+    var image: UIImage!
     
     lazy var zoomingTap: UITapGestureRecognizer = {
         let zoomingTap = UITapGestureRecognizer(target: self, action: #selector(handleZoomingTap))
@@ -33,9 +35,7 @@ class ImageScrollView: UIScrollView {
     }
     
     func set(image: UIImage) {
-        // remove old image
-        imageView?.removeFromSuperview()
-        imageView = nil
+        self.image = image
         // set new image
         imageView = UIImageView(image: image)
         self.addSubview(imageView)
@@ -133,6 +133,7 @@ class ImageScrollView: UIScrollView {
         zoomRect.origin.x = center.x - (zoomRect.size.width / 2)
         zoomRect.origin.y = center.y - (zoomRect.size.height / 2)
         return zoomRect
+        
     }
 }
     
@@ -144,6 +145,13 @@ extension ImageScrollView: UIScrollViewDelegate {
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        
+        if self.zoomScale == self.minimumZoomScale {
+            self.imageViewer.closeButton.isHidden = false
+        } else {
+            self.imageViewer.closeButton.isHidden = true
+        }
+        
         self.centerImage()
     }
     

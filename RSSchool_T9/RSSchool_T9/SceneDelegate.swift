@@ -37,7 +37,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // settings ViewController plug
         let settingsViewController = UIViewController() // will be change on custom itemsVC
         
-//        settingsViewController.view.backgroundColor = .purple
         /// set tabBarItem appearance
         settingsViewController.tabBarItem = UITabBarItem.init(title: "Settings", image: UIImage.init(systemName: "gear"), tag: 0)
         

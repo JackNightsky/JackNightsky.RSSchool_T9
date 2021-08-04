@@ -126,7 +126,6 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
             imageView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10).isActive = true
             
             stackOfContent.addArrangedSubview(container)
-            
         }
         stackOfContent.spacing = 20
     }

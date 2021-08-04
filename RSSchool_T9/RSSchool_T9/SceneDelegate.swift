@@ -35,7 +35,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         itemsViewController.tabBarItem = UITabBarItem.init(title: "Items", image: UIImage.init(systemName: "square.grid.2x2"), tag: 0)
         
         // settings ViewController plug
-        let settingsViewController = UIViewController() // will be change on custom itemsVC
+        let settingsViewController = UINavigationController(rootViewController: SettingsViewController.init(tableName: "settings",
+                                                                                                            drawStories: false,
+                                                                                                            selectColorHEX: "#f3af22"))
         
         /// set tabBarItem appearance
         settingsViewController.tabBarItem = UITabBarItem.init(title: "Settings", image: UIImage.init(systemName: "gear"), tag: 0)

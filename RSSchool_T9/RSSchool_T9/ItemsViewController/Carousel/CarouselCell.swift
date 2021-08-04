@@ -30,37 +30,43 @@ class CarouselCell: UICollectionViewCell {
     }
     
     
-    func draw() {
+    func draw(_ animated: Bool = false) {
         drawLayer.lineWidth = 1
         drawLayer.path = self.path
-        drawLayer.strokeColor = UIColor.white.cgColor
+        drawLayer.strokeColor = tintColor.cgColor
         drawLayer.fillColor = nil
         drawLayer.strokeStart = 0
         drawLayer.strokeEnd = 0
          
         self.layer.addSublayer(drawLayer)
         
-        animatePathChange(for: drawLayer, toPath: path)
-        
-        timer?.invalidate()
-        
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [self] (timer) in
-            if let fireDate = self.fireDate,
-               Date().timeIntervalSince1970 - fireDate.timeIntervalSince1970 <= time {
-                drawLayer.strokeEnd += 0.015
-            } else {
-                timer.invalidate()
+        if animated {
+            animatePathChange(for: drawLayer, toPath: path)
+            
+            timer?.invalidate()
+            
+            let timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [self] (timer) in
+                if let fireDate = self.fireDate,
+                   Date().timeIntervalSince1970 - fireDate.timeIntervalSince1970 <= time {
+                    drawLayer.strokeEnd += 0.015
+                } else {
+                    timer.invalidate()
+                }
             }
+            self.timer = timer
+            self.fireDate = Date()
+            RunLoop.current.add(timer, forMode: .common)
+        } else {
+            drawLayer.strokeEnd = 1
         }
-        self.timer = timer
-        self.fireDate = Date()
-        RunLoop.current.add(timer, forMode: .common)
+        
     }
     
-//    override func dragStateDidChange(_ dragState: UICollectionViewCell.DragState) {
-//        super.dragStateDidChange(dragState)
-//        print(dragState)
-//    }
+    func clear() {
+        drawLayer.strokeEnd = 0
+    }
+    
+    
     
     func animatePathChange(for layer: CAShapeLayer, toPath: CGPath) {
         let animation = CABasicAnimation(keyPath: "path")
@@ -70,12 +76,4 @@ class CarouselCell: UICollectionViewCell {
         animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         layer.add(animation, forKey: "strokeEnd")
     }
-    
-    func clear() {
-        drawLayer.strokeEnd = 0
-    }
-    
-    
-    
-    
 }

@@ -29,6 +29,7 @@ class Carousel: UICollectionView {
         delegate = self
         dataSource = self
         register(CarouselCell.self, forCellWithReuseIdentifier: CarouselCell.reuseId)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -44,16 +45,22 @@ extension Carousel: UICollectionViewDelegate, UICollectionViewDataSource {
         return paths.count
     }
     
+    // тут нужно не создавать новую ячейку, а брать её из очереди
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarouselCell.reuseId, for: indexPath) as! CarouselCell
         
         cell.path = paths[indexPath.item]
-        cell.clear()
-        cell.draw()
         
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        (cell as! CarouselCell).draw(true)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        (cell as! CarouselCell).clear()
+    }
 }
 
 extension Carousel: UICollectionViewDelegateFlowLayout {

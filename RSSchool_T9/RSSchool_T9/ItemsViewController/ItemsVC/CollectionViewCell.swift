@@ -27,12 +27,20 @@ class CollectionViewCell: UICollectionViewCell {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let vc: ContentViewController = ContentViewController(self)
-        
+        vc.navContrl = self.navigationController
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .overFullScreen
-        navigationController.modalPresentationCapturesStatusBarAppearance = false
-        navigationController.present(vc, animated: true, completion: nil)
+//        navigationController.modalPresentationCapturesStatusBarAppearance = false
+//        navigationController.present(vc, animated: true, completion: nil)
 
+        let transition = CATransition()
+            transition.duration = 0.3
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.moveIn
+            transition.subtype = CATransitionSubtype.fromTop
+        navigationController.view.layer.add(transition, forKey: nil)
+        navigationController.pushViewController(vc, animated: false)
+        navigationController.tabBarController?.tabBar.isHidden = true
     }
     
     // MARK: - Properties

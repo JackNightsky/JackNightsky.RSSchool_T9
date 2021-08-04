@@ -103,7 +103,6 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
             container.layer.borderWidth = 1
             container.layer.borderColor = UIColor.white.cgColor
             container.layer.cornerRadius = 10
-            
             container.translatesAutoresizingMaskIntoConstraints = false
             
             let imageView: UIImageView
@@ -111,25 +110,49 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
             imageView.layer.cornerRadius = 10
             imageView.layer.borderColor = UIColor.white.cgColor
             imageView.layer.borderWidth = 1
-            
             imageView.backgroundColor = .white
             imageView.contentMode = .scaleAspectFill // not compress image
             imageView.clipsToBounds = true  // clips image's places which not fit in view
-
-            imageView.translatesAutoresizingMaskIntoConstraints = false
+            
             container.addSubview(imageView)
             
+            imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/2 + 20).isActive = true
             imageView.topAnchor.constraint(equalTo: container.topAnchor, constant: 10).isActive = true
             imageView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10).isActive = true
             imageView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10).isActive = true
             imageView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10).isActive = true
             
+            let openImageViewerButton: UIButton
+            openImageViewerButton = UIButton()
+            openImageViewerButton.backgroundColor = .clear
+//            openImageViewerButton.
+            
+            openImageViewerButton.addTarget(self, action: #selector(openImageViewer), for: .touchDown)
+            
+            
+            container.addSubview(openImageViewerButton)
+            
+            openImageViewerButton.translatesAutoresizingMaskIntoConstraints = false
+            openImageViewerButton.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+            openImageViewerButton.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+            openImageViewerButton.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
+            openImageViewerButton.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+            
             stackOfContent.addArrangedSubview(container)
         }
         stackOfContent.spacing = 20
     }
     
+    var navContrl: UINavigationController!
+    
+    @objc func openImageViewer(_ sender : UIButton) {
+        let imageViewer = ImageViewer(image)
+        
+        imageViewer.modalTransitionStyle = .coverVertical
+        imageViewer.modalPresentationStyle = .overFullScreen
+        navigationController?.present(imageViewer, animated: true)
+    }
     
     
     
@@ -240,7 +263,13 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
     }()
 
     @objc func closeVC(_ sender : UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromBottom
+        navigationController?.view.layer.add(transition, forKey: nil)
+        _ = navigationController?.popViewController(animated: false)
     }
     
     

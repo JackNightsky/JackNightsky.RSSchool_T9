@@ -27,10 +27,10 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         view.addSubview(scrollView)
         scrollView.addSubview(content)
         
-        scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        scrollView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         content.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         content.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
@@ -208,10 +208,7 @@ class ContentViewController: UIViewController, UIScrollViewDelegate {
         separatorLine.centerYAnchor.constraint(equalTo: subHeaderView.bottomAnchor).isActive = true
         
         content.addSubview(stackOfContent)
-//        stackOfContent.heightAnchor.constraint(equalToConstant: stackOfContent.intrinsicContentSize.height).isActive = true
-//        stackOfContent.centerXAnchor.constraint(equalTo: content.centerXAnchor).isActive = true
         stackOfContent.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 40).isActive = true
-//        stackOfContent.widthAnchor.constraint(equalTo: content.widthAnchor).isActive = true
         stackOfContent.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 20).isActive = true
         stackOfContent.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -20).isActive = true
         stackOfContent.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true

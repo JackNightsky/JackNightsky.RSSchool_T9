@@ -20,7 +20,7 @@
 @property (nonatomic) BOOL drawStories;
 
 @property (nonatomic, strong) NSString *selectColorHEX;
-@property (nonatomic, weak) id<SettingsDrawColor> delegate;
+
 @property (nonatomic, strong) NSString * tableName;
 
 @end
@@ -32,6 +32,8 @@
     self.selectColorHEX = drawColorHEX;
     self.drawStories = drawStories;
     [self.tableView reloadData];
+    [self.delegate setDrawColor:_selectColorHEX
+                 andDrawStories:_drawStories];
 }
 
 - (void)viewDidLoad {
@@ -67,9 +69,6 @@
     if ([_tableName isEqualToString:@"settings"]) {
         self.navigationItem.title = @"Settings";
     }
-    
-    [self.delegate setDrawColor:_selectColorHEX
-                 andDrawStories:_drawStories]; // set delegate
     
     // Setup tableView
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0,0)
@@ -181,6 +180,8 @@
 
 - (void)toggleDrawStories {
     self.drawStories = !self.drawStories;
+    [self.delegate setDrawColor:_selectColorHEX
+                 andDrawStories:_drawStories];
 }
 
 

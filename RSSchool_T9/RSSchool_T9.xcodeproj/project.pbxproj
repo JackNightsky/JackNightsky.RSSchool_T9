@@ -96,6 +96,7 @@
 				0401C0DC26B7450100FB1668 /* ItemsCollectionViewController.swift */,
 				0401C0DF26B7462200FB1668 /* CollectionViewCell.swift */,
 				0401C0E426B76A6400FB1668 /* CellImageView.swift */,
+				046B773726BAD08B00EF6787 /* ContentVC */,
 			);
 			path = ItemsVC;
 			sourceTree = "<group>";
@@ -103,11 +104,11 @@
 		046B771C26BA56DA00EF6787 /* SettingsVC */ = {
 			isa = PBXGroup;
 			children = (
+				046B771E26BA571100EF6787 /* SettingsViewController.h */,
+				046B771F26BA571100EF6787 /* SettingsViewController.m */,
 				046B771D26BA571100EF6787 /* RSSchool_T9-Bridging-Header.h */,
 				046B772226BA576900EF6787 /* Item */,
 				046B772126BA576300EF6787 /* Cells */,
-				046B771E26BA571100EF6787 /* SettingsViewController.h */,
-				046B771F26BA571100EF6787 /* SettingsViewController.m */,
 			);
 			path = SettingsVC;
 			sourceTree = "<group>";
@@ -157,13 +158,20 @@
 			path = Carousel;
 			sourceTree = "<group>";
 		};
+		046B773726BAD08B00EF6787 /* ContentVC */ = {
+			isa = PBXGroup;
+			children = (
+				0401C0E926B787E200FB1668 /* ContentViewController.swift */,
+				046B772D26BA5B8400EF6787 /* ImageViewer */,
+				046B773426BA83FB00EF6787 /* Carousel */,
+			);
+			path = ContentVC;
+			sourceTree = "<group>";
+		};
 		049577AE26B458170007910A /* ItemsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0401C0E826B7875600FB1668 /* ItemsVC */,
-				0401C0E926B787E200FB1668 /* ContentViewController.swift */,
-				046B772D26BA5B8400EF6787 /* ImageViewer */,
-				046B773426BA83FB00EF6787 /* Carousel */,
 			);
 			path = ItemsViewController;
 			sourceTree = "<group>";

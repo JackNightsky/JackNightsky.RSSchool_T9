@@ -11,6 +11,7 @@
 
 @protocol SettingsDrawColor <NSObject>
 
+
 -(void) setDrawColor:(NSString*_Nonnull)drawColorHEX
       andDrawStories:(BOOL)drawStories;
 
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SettingsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SettingsDrawColor>
 
+@property (nonatomic, weak) id<SettingsDrawColor> delegate;
 -(instancetype)initWithTableName:(NSString*)tableName
                      drawStories:(BOOL)drawStories
                   selectColorHEX:(NSString*)selectColorHEX;

@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // settings ViewController plug
         let settingsViewController = UINavigationController(rootViewController: SettingsViewController.init(tableName: "settings",
-                                                                                                            drawStories: false,
+                                                                                                            drawStories: true,
                                                                                                             selectColorHEX: "#f3af22"))
         
         /// set tabBarItem appearance
@@ -57,6 +57,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         /// set appearance
         tabBarController.tabBar.tintColor = .red
         tabBarController.tabBar.barTintColor = .white
+        
+        
+        (settingsViewController.viewControllers.first as! SettingsViewController).delegate = itemsViewController.viewControllers.first as! SettingsDrawColor
         
         
         return tabBarController

@@ -9,7 +9,16 @@
 
 import UIKit
 
-class ItemsCollectionViewController: UIViewController {
+class ItemsCollectionViewController: UIViewController, SettingsDrawColor {
+    
+    var drawColorHEX: String = "#f3af22"
+    var drawStories: Bool = true
+    
+    func setDrawColor(_ drawColorHEX: String, andDrawStories drawStories: Bool) {
+        self.drawColorHEX = drawColorHEX
+        self.drawStories = drawStories
+    }
+    
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {

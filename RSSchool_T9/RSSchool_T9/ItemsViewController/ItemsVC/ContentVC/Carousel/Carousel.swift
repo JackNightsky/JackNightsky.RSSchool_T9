@@ -45,7 +45,6 @@ extension Carousel: UICollectionViewDelegate, UICollectionViewDataSource {
         return paths.count
     }
     
-    // тут нужно не создавать новую ячейку, а брать её из очереди
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarouselCell.reuseId, for: indexPath) as! CarouselCell
         

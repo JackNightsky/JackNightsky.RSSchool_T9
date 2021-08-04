@@ -70,7 +70,6 @@ extension ItemsCollectionViewController {
     override func viewWillTransition(to size: CGSize,
                             with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        print("turn")
         collectionView.collectionViewLayout.invalidateLayout()
     }
 }
@@ -83,11 +82,16 @@ extension ItemsCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("badabum")
+        if view.safeAreaLayoutGuide.layoutFrame.width > view.safeAreaLayoutGuide.layoutFrame.height {
+            print("horizontal")
+            let height = (view.safeAreaLayoutGuide.layoutFrame.height - 40) // UIScreen.main.bounds.width * 0.40
+            return CGSize(width: height * 1.1, height: height)
+        } else {
+            print("vertical")
             let width = (view.safeAreaLayoutGuide.layoutFrame.width - 80) / 2 // UIScreen.main.bounds.width * 0.40
             return CGSize(width: width, height: width*11/9)
-        
         }
+    }
     
 }
 

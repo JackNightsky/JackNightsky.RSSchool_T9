@@ -20,6 +20,12 @@
 		046B773126BA809400EF6787 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B773026BA809400EF6787 /* Carousel.swift */; };
 		046B773326BA82BE00EF6787 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B773226BA82BE00EF6787 /* CarouselCell.swift */; };
 		046B773926BAD41000EF6787 /* ItemsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B773826BAD41000EF6787 /* ItemsNavigationController.swift */; };
+		046B773D26BAE14A00EF6787 /* story-5-path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B773C26BAE14A00EF6787 /* story-5-path.swift */; };
+		046B773F26BAE1A400EF6787 /* story-6-path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B773E26BAE1A400EF6787 /* story-6-path.swift */; };
+		046B774226BAE6C400EF6787 /* s5-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 046B774026BAE6C400EF6787 /* s5-text.txt */; };
+		046B774326BAE6C400EF6787 /* s5-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 046B774126BAE6C400EF6787 /* s5-title.txt */; };
+		046B774626BAE6D200EF6787 /* s6-title.txt in Resources */ = {isa = PBXBuildFile; fileRef = 046B774426BAE6D200EF6787 /* s6-title.txt */; };
+		046B774726BAE6D200EF6787 /* s6-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 046B774526BAE6D200EF6787 /* s6-text.txt */; };
 		2BB9E75C26AB605700112651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9E75B26AB605700112651 /* AppDelegate.swift */; };
 		2BB9E75E26AB605700112651 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9E75D26AB605700112651 /* SceneDelegate.swift */; };
 		2BB9E76326AB605700112651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB9E76126AB605700112651 /* Main.storyboard */; };
@@ -59,6 +65,12 @@
 		046B773026BA809400EF6787 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		046B773226BA82BE00EF6787 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		046B773826BAD41000EF6787 /* ItemsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsNavigationController.swift; sourceTree = "<group>"; };
+		046B773C26BAE14A00EF6787 /* story-5-path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "story-5-path.swift"; sourceTree = "<group>"; };
+		046B773E26BAE1A400EF6787 /* story-6-path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "story-6-path.swift"; sourceTree = "<group>"; };
+		046B774026BAE6C400EF6787 /* s5-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s5-text.txt"; sourceTree = "<group>"; };
+		046B774126BAE6C400EF6787 /* s5-title.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s5-title.txt"; sourceTree = "<group>"; };
+		046B774426BAE6D200EF6787 /* s6-title.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s6-title.txt"; sourceTree = "<group>"; };
+		046B774526BAE6D200EF6787 /* s6-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "s6-text.txt"; sourceTree = "<group>"; };
 		2BB9E75826AB605700112651 /* RSSchool_T9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSchool_T9.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB9E75B26AB605700112651 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB9E75D26AB605700112651 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +182,26 @@
 			path = ContentVC;
 			sourceTree = "<group>";
 		};
+		046B773A26BAE0ED00EF6787 /* story-5 */ = {
+			isa = PBXGroup;
+			children = (
+				046B774026BAE6C400EF6787 /* s5-text.txt */,
+				046B774126BAE6C400EF6787 /* s5-title.txt */,
+				046B773C26BAE14A00EF6787 /* story-5-path.swift */,
+			);
+			path = "story-5";
+			sourceTree = "<group>";
+		};
+		046B773B26BAE0F800EF6787 /* story-6 */ = {
+			isa = PBXGroup;
+			children = (
+				046B774526BAE6D200EF6787 /* s6-text.txt */,
+				046B774426BAE6D200EF6787 /* s6-title.txt */,
+				046B773E26BAE1A400EF6787 /* story-6-path.swift */,
+			);
+			path = "story-6";
+			sourceTree = "<group>";
+		};
 		049577AE26B458170007910A /* ItemsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +264,8 @@
 		2BB9F29226AE017D00F43852 /* Static */ = {
 			isa = PBXGroup;
 			children = (
+				046B773B26BAE0F800EF6787 /* story-6 */,
+				046B773A26BAE0ED00EF6787 /* story-5 */,
 				2BB9F30C26AF5F9C00F43852 /* story-4 */,
 				2BB9F30326AF5D7E00F43852 /* story-3 */,
 				2BB9F2FC26AF554C00F43852 /* story-2 */,
@@ -342,6 +376,7 @@
 			files = (
 				2BB9E76826AB605900112651 /* LaunchScreen.storyboard in Resources */,
 				2BB9F30726AF5D9D00F43852 /* s3-text.txt in Resources */,
+				046B774726BAE6D200EF6787 /* s6-text.txt in Resources */,
 				2BB9F30926AF5DAF00F43852 /* s3-title.txt in Resources */,
 				2BB9F31226AF5FBE00F43852 /* s4-title.txt in Resources */,
 				2BB9F29526AE01A300F43852 /* s1-title.txt in Resources */,
@@ -350,7 +385,10 @@
 				2BB9E76526AB605900112651 /* Assets.xcassets in Resources */,
 				2BB9F30226AF57B500F43852 /* s2-text.txt in Resources */,
 				2BB9E76326AB605700112651 /* Main.storyboard in Resources */,
+				046B774326BAE6C400EF6787 /* s5-title.txt in Resources */,
 				2BB9F29726AE01B800F43852 /* s1-text.txt in Resources */,
+				046B774626BAE6D200EF6787 /* s6-title.txt in Resources */,
+				046B774226BAE6C400EF6787 /* s5-text.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,10 +414,12 @@
 				2BB9F2EC26AF1F6200F43852 /* story-1-path.swift in Sources */,
 				0401C0EA26B787E200FB1668 /* ContentViewController.swift in Sources */,
 				046B772C26BA582900EF6787 /* UIColor+colorFromHexString.m in Sources */,
+				046B773F26BAE1A400EF6787 /* story-6-path.swift in Sources */,
 				2BB9F30E26AF5FA900F43852 /* story-4-path.swift in Sources */,
 				046B773926BAD41000EF6787 /* ItemsNavigationController.swift in Sources */,
 				046B773126BA809400EF6787 /* Carousel.swift in Sources */,
 				2BB9E75E26AB605700112651 /* SceneDelegate.swift in Sources */,
+				046B773D26BAE14A00EF6787 /* story-5-path.swift in Sources */,
 				046B772026BA571100EF6787 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
